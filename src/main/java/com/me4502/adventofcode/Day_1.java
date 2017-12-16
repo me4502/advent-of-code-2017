@@ -1,9 +1,19 @@
 package com.me4502.adventofcode;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
+
 public class Day_1 {
 
     public static void main(String[] args) {
-        String input = args[0];
+        String input = null;
+        try {
+            input = Files.readAllLines(Paths.get("Day_1.txt")).stream().collect(Collectors.joining("\n"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int sum = 0;
 
         for (int i = 0; i < input.length(); i++) {
